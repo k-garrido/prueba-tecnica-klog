@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import React, { useState } from "react";
 import Gallery from "../components/Gallery";
@@ -24,7 +23,7 @@ export default function Home() {
 
   const receiveTopic = async (e) => {
     e.preventDefault();
-    apiRequest(topic)
+    apiRequest(topic);
   };
 
   return (
@@ -36,19 +35,17 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Search an image :)</h1>
-        <div>
-          <form onSubmit={receiveTopic}>
+          <form onSubmit={receiveTopic} className= {styles.form}>
             <input
               type="text"
               placeholder="Type Something"
               id="name"
+              className= {styles.textField}
               onChange={(e) => setTopic(e.target.value)}
             />
-            <button type="submit"> Buscar </button>
+            <button type="submit" className= {styles.button}> Buscar </button>
           </form>
-        </div>
-        <div>
+        <div className= {styles.gallery}>
           <Gallery data={data} />
         </div>
       </main>
